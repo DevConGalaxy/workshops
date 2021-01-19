@@ -1,7 +1,7 @@
 {
     "conferences": [
         {
-            "id": "greenconf",
+            "id": "accessibilityconf",
             "label": "Accessibility Con",
             "date": "03 Février 2021",
             "url": "http://accessibilitycon.devcongalaxy.io/",

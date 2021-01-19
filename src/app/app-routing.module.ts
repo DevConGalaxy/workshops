@@ -6,16 +6,12 @@ import { MeetupsComponent } from './meetups/meetups.component';
 
 const routes: Routes = [
   {
-    path: 'workshops',
+    path: '',
     component: CodelabsComponent
   },
   {
     path: 'workshops/:id',
     component: CodelabComponent
-  },
-  {
-    path: '',
-    component: MeetupsComponent
   }
 ];
 

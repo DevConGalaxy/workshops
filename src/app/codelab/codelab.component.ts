@@ -24,6 +24,7 @@ export class CodelabComponent implements OnInit {
   public tutorialSteps: Array<string> = new Array<string>();
   public mcid = '';
   public konamicode: any;
+  public repo: string;
 
   constructor(
     private router: Router,
@@ -33,49 +34,91 @@ export class CodelabComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
     this.route.paramMap.subscribe(params => {
       this.tutorialId = params.get('id');
-      this.mcid = this.route.snapshot.queryParamMap.get('wtmcid')  || '3022639';
-      
+      this.mcid = this.route.snapshot.queryParamMap.get('wtmcid') || '3022639';
+
       this.konamicode = new Konami(`./assets/codelabs/${this.tutorialId}/solution.html`);
 
-      this.getTutorial();
-      this.getData();
       this.route.queryParamMap.subscribe((innerParams: any) => {
-        if (!innerParams.has('step')) {
-          const localStorageStep = JSON.parse(
-            localStorage.getItem(this.tutorialId)
-          );
-          if (localStorageStep) {
-            this.currentStep = localStorageStep.step;
-          } else {
+        if (!innerParams.has('repo')) {
+          console.log("No Repo");
+        } else {
+          if (!(this.repo === innerParams.get('repo'))) {
+            this.repo = innerParams.get('repo');
+            
             this.currentStep = 1;
+            this.getTutorial();
+            this.getData();
           }
 
-          if (this.currentStep > 1) {
-            this.openResumeDialog();
+          if (!innerParams.has('step')) {
+            const localStorageStep = JSON.parse(
+              localStorage.getItem(this.tutorialId)
+            );
+            if (localStorageStep) {
+              this.currentStep = localStorageStep.step;
+            } else {
+              this.currentStep = 1;
+            }
+
+            if (this.currentStep > 1) {
+              this.openResumeDialog();
+            } else {
+              this.updateStepUrl(true);
+            }
           } else {
+            this.currentStep = Number(innerParams.get('step'));
+            if (this.currentStep < 1) {
+              this.currentStep = 1;
+              this.updateStepUrl(true);
+            }
+          }
+          if (
+            this.tutorialSteps.length > 0 &&
+            this.currentStep > this.tutorialSteps.length
+          ) {
+            this.currentStep = this.tutorialSteps.length;
             this.updateStepUrl(true);
           }
-        } else {
-          this.currentStep = Number(innerParams.get('step'));
-          if (this.currentStep < 1) {
-            this.currentStep = 1;
-            this.updateStepUrl(true);
-          }
-        }
-        if (
-          this.tutorialSteps.length > 0 &&
-          this.currentStep > this.tutorialSteps.length
-        ) {
-          this.currentStep = this.tutorialSteps.length;
-          this.updateStepUrl(true);
         }
       });
+
+      // this.route.queryParamMap.subscribe((innerParams: any) => {
+      //   if (!innerParams.has('step')) {
+      //     const localStorageStep = JSON.parse(
+      //       localStorage.getItem(this.tutorialId)
+      //     );
+      //     if (localStorageStep) {
+      //       this.currentStep = localStorageStep.step;
+      //     } else {
+      //       this.currentStep = 1;
+      //     }
+
+      //     if (this.currentStep > 1) {
+      //       this.openResumeDialog();
+      //     } else {
+      //       this.updateStepUrl(true);
+      //     }
+      //   } else {
+      //     this.currentStep = Number(innerParams.get('step'));
+      //     if (this.currentStep < 1) {
+      //       this.currentStep = 1;
+      //       this.updateStepUrl(true);
+      //     }
+      //   }
+      //   if (
+      //     this.tutorialSteps.length > 0 &&
+      //     this.currentStep > this.tutorialSteps.length
+      //   ) {
+      //     this.currentStep = this.tutorialSteps.length;
+      //     this.updateStepUrl(true);
+      //   }
+      // });
     });
   }
-  
+
   openResumeDialog(): void {
 
     setTimeout(() => {
@@ -94,11 +137,10 @@ export class CodelabComponent implements OnInit {
 
   getTutorial() {
     let i = 0;
-    this.ts.getTutorialMd(this.tutorialId).subscribe(response => {
-      const path = `assets/codelabs/${this.tutorialId}`;
+    this.ts.getTutorialMdFromRepo(this.repo).subscribe(response => {
+      const path = `https://raw.githubusercontent.com/${this.repo}`;
       this.tutorialMd = response.replace(/media/g, `${path}/images`);
       this.tutorialMd = this.tutorialMd.replace(/WTMCID/g, this.mcid);
-
       this.tutorialMd.split('--sep--').map(str => {
         let [, title, duration, , ...txt] = str.trim().split('\n');
         title = title.split(':').pop();
@@ -114,7 +156,6 @@ export class CodelabComponent implements OnInit {
         }
         i++;
       });
-
       if (this.currentStep > this.tutorialSteps.length) {
         this.currentStep = this.tutorialSteps.length;
         this.updateStepUrl(true);
@@ -123,12 +164,13 @@ export class CodelabComponent implements OnInit {
   }
 
   getData() {
-    this.ts.getTutorialData(this.tutorialId).subscribe((response: any) => {
+    this.ts.getTutorialDataFromRepo(this.repo).subscribe((response: any) => {
       console.log(response);
 
       this.tutorialResources = response.resources || [];
     });
   }
+
   goToStep(step: number) {
     this.currentStep = step;
     this.updateStepUrl();
@@ -158,7 +200,7 @@ export class CodelabComponent implements OnInit {
       localStorage.setItem(this.tutorialId, `{"step":${this.currentStep}}`);
     }
     this.router.navigate([], {
-      queryParams: { step: this.currentStep, wtmcid: this.mcid },
+      queryParams: { repo: this.repo, step: this.currentStep, wtmcid: this.mcid },
       replaceUrl: replaceUrl
     });
   }
