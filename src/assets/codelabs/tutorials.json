@@ -62,7 +62,7 @@
     },
     {
       "id": "deutsch-jozsa",
-      "repo": "tagazok/my-workshops/master/deutsch-jozsa",
+      "repo": "vivienlonde/my-workshops/master/deutsch-jozsa",
       "title": "Réaliser l'algo quantique de DeutschJoszaAlgorihtm",
       "language": "fr",
       "date": "Mon Jul 16 2018 00:00:00 GMT+0100",
@@ -72,7 +72,7 @@
     },
     {
       "id": "grover",
-      "repo": "tagazok/my-workshops/master/grover",
+      "repo": "vivienlonde/my-workshops/master/grover",
       "title": "Résoudre un problème de satisfiabilité (SAT) avec Grover",
       "language": "fr",
       "date": "Mon Jul 16 2018 00:00:00 GMT+0100",
