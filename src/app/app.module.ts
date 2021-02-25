@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +15,8 @@ import { CodelabComponent } from './codelab/codelab.component';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { ApplicationService } from './services/application.service';
 import { ResumeDialogComponent } from './codelab/resume-dialog.component';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 import { FilterPipe } from './filter.pipe';
 import { StatusPipe } from './status.pipe';
@@ -43,6 +46,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     MatDialogModule,
     MatButtonModule,
     MatSidenavModule,
+    MatTooltipModule,
+    MatMenuModule,
     MarkdownModule.forRoot({
       markedOptions: {
         provide: MarkedOptions,

@@ -21,6 +21,8 @@ export class CodelabComponent implements OnInit {
   public steps: Array<any> = new Array<any>();
   private tutorialMd: any;
   public tutorialResources: Array<any> = new Array<any>();
+  public authors: Array<any> = new Array<any>();
+  public infos: any;
   public tutorialSteps: Array<string> = new Array<string>();
   public mcid = '';
   public konamicode: any;
@@ -168,6 +170,8 @@ export class CodelabComponent implements OnInit {
       console.log(response);
 
       this.tutorialResources = response.resources || [];
+      this.authors = response.authors || [];
+      this.infos = response.infos;
     });
   }
 

@@ -7,8 +7,9 @@
                 </div>
             </div>
             <div class="flex flex-direction-column">
-                <button mat-button *ngFor="let step of steps; index as idx" (click)="goToStep(idx + 1)" class="list-item flex flex-direction-row"
-                     [class.complete]="idx + 1 <= currentStep" [class.active]="currentStep === idx + 1">
+                <button mat-button *ngFor="let step of steps; index as idx" (click)="goToStep(idx + 1)"
+                    class="list-item flex flex-direction-row" [class.complete]="idx + 1 <= currentStep"
+                    [class.active]="currentStep === idx + 1">
                     <div class="step-title">{{idx + 1}}. {{step.title}}</div>
                 </button>
             </div>
@@ -19,8 +20,8 @@
                     <div>RESOURCES</div>
                 </div>
             </div>
-            <a *ngFor="let resource of tutorialResources" [href]="resource.link" class="list-item flex flex-direction-row"
-                target="_blank">
+            <a *ngFor="let resource of tutorialResources" [href]="resource.link"
+                class="list-item flex flex-direction-row" target="_blank">
                 <div><i class="{{resource.type}}"></i></div>
                 <div>{{resource.label}}</div>
             </a>
@@ -40,10 +41,30 @@
                 <div><a [routerLink]="['/']"><i class="fas fa-home"></i></a></div>
             </div>
         </div>
+
         <div class="codelab-steps flex-grow">
-            <div *ngFor="let step of tutorialSteps; index as idx" id="step-{{idx + 1}}" class="card margin-2 margin-mobile-0"
-                [class.selected]="idx + 1 == currentStep">
-                <div markdown ngPreserveWhitespaces [data]="step" (error)="onError($event)" class="codelab-step padding-1">
+            <div class="codelab-header" *ngIf="currentStep == 1">
+                <h1 class="codelab-header-title">{{infos?.title}}</h1>
+                <div class="codelab-header-description">
+                    {{infos?.description}}
+                </div>
+                <div class="authors" *ngIf="authors.length > 0">
+   
+                    <div class="label">Créé par</div>
+                    <div class="flex flex-direction-row justify-content-center flex-wrap-wrap">
+                        <div *ngFor="let author of authors" class="author">
+                            <a [href]="author.url" target="_blank" class="flex align-items-center">
+                                <img class="avatar"
+                                    src="https://raw.githubusercontent.com/{{this.repo}}/data/authors/{{author.avatar}}" />
+                                <span>{{author.name}}</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngFor="let step of tutorialSteps; index as idx" id="step-{{idx + 1}}"
+                class="card margin-2 margin-bottom-5 margin-mobile-0" [class.selected]="idx + 1 == currentStep">
+                <div markdown ngPreserveWhitespaces [data]="step" (error)="onError($event)"
+                    class="codelab-step padding-1">
                 </div>
                 <div class="controls flex justify-content-space-between">
                     <button [hidden]="currentStep <= 1" mat-raised-button (click)="prev()">
@@ -54,6 +75,24 @@
                     </button>
                 </div>
             </div>
+        </div>
+        <div class="bug">
+            <button mat-fab [matMenuTriggerFor]="menu" class="bug-button"
+                aria-label="Bouton pour signaler un bug"
+                matTooltip="Signaler un bug"
+                matTooltipPosition="left"
+                aria-tooltip="Bouton pour signaler un bug"
+        >
+                <i class="fas fa-bug"></i>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <span><a href="https://github.com/DevConGalaxy/workshops/issues/" target="_blank">Sur la plateforme</a></span>
+                </button>
+                <button mat-menu-item>
+                    <span><a href="{{infos?.github}}/issues/" target="_blank">Dans ce tutorial</a></span>
+                </button>
+            </mat-menu>
         </div>
     </mat-drawer-content>
 </mat-drawer-container>

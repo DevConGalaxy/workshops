@@ -14,6 +14,10 @@ mat-drawer-container {
     flex-direction: row;
 }
 
+#sidebar {
+    width: 320px;
+}
+
 #sidebar,
 .codelab-steps {
     overflow-y: auto;
@@ -33,6 +37,68 @@ mat-drawer-container {
         &.active {
             font-weight: 600;
             color: $font-color;
+        }
+    }
+}
+
+.mat-menu-item {
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.bug {
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+
+    .bug-button {
+        background-color: #d9534f;
+        border-color: #d43f3a;
+        color: #fff;
+    }
+    
+    i {
+        font-size: 20px;
+    }
+}
+
+.codelab-header {
+    background-color: #fff;
+    padding: 1em 2em;
+    border-bottom: solid 1px #e6e6e6;
+
+    h1.codelab-header-title {
+        padding: 1em 0;
+        text-align: center;
+    }
+
+    .codelab-header-description {
+        padding: 1em 0 2em 0;
+        max-width: 1024px;
+        margin: auto;
+    }
+
+    .authors {
+        text-align: center;
+        .label {
+            padding: 1em 0;
+            font-style: italic;
+        }
+        .author {
+            padding: 1em;
+            span {
+                padding-left: .3em;
+            }
+        }
+        .avatar {
+           width: 35px;
+           height: auto;
+           border-radius: 50%; 
+        }
+        a {
+            text-decoration: none;
         }
     }
 }
@@ -160,5 +226,13 @@ mat-drawer {
 
     .burger-menu {
         display: block;
+    }
+
+    .codelab-header {
+        .authors {
+            .author {
+                padding: .5em;
+            }
+        }
     }
 }
