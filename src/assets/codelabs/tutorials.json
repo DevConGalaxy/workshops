@@ -51,6 +51,16 @@
   ],
   "tutorials": [
     {
+      "id": "aks",
+      "repo": "thomasrannou/aks-workshop/main/",
+      "title": "Déployer votre premier cluster Kubernetes dans Azure",
+      "language": "fr",
+      "date": "Mon Mar 1 2021 00:00:00 GMT+0100",
+      "icon": "azure",
+      "tags": ["kubernetes", "docker", ".Net 5"],
+      "status": "published"
+    },
+    {
       "id": "mxchip-azure",
       "repo": "tagazok/my-workshops/master/mxchip-azure",
       "title": "Codez votre premier projet IoT sur MXChip",

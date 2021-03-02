@@ -25,6 +25,7 @@ export class CodelabComponent implements OnInit {
   public infos: any;
   public tutorialSteps: Array<string> = new Array<string>();
   public mcid = '';
+  public ocid = '';
   public konamicode: any;
   public repo: string;
 
@@ -39,7 +40,8 @@ export class CodelabComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       this.tutorialId = params.get('id');
-      this.mcid = this.route.snapshot.queryParamMap.get('wtmcid') || '3022639';
+      this.mcid = this.route.snapshot.queryParamMap.get('WT.mc_id') || 'javascript-0000-yolasors';
+      this.ocid = this.route.snapshot.queryParamMap.get('ocid') || 'AID3030268';
 
       this.konamicode = new Konami(`./assets/codelabs/${this.tutorialId}/solution.html`);
 
@@ -204,7 +206,7 @@ export class CodelabComponent implements OnInit {
       localStorage.setItem(this.tutorialId, `{"step":${this.currentStep}}`);
     }
     this.router.navigate([], {
-      queryParams: { repo: this.repo, step: this.currentStep, wtmcid: this.mcid },
+      queryParams: { repo: this.repo, step: this.currentStep, "WT.mc_id": this.mcid, ocid: this.ocid },
       replaceUrl: replaceUrl
     });
   }
