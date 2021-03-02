@@ -56,7 +56,7 @@
       "title": "Déployer votre premier cluster Kubernetes dans Azure",
       "language": "fr",
       "date": "Mon Mar 1 2021 00:00:00 GMT+0100",
-      "icon": "azure",
+      "icon": "kubernetes",
       "tags": ["kubernetes", "docker", ".Net 5"],
       "status": "published"
     },
