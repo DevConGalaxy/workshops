@@ -53,7 +53,7 @@
     {
       "id": "swa",
       "repo": "tagazok/my-workshops/master/static-web-apps",
-      "title": "Create a web app using Static Web App with and Cosmos DB",
+      "title": "Create a web app using Static Web Apps and Cosmos DB",
       "language": "en",
       "date": "Fri Jul 30 2021 00:00:00 GMT+0100",
       "icon": "azure",
@@ -77,7 +77,7 @@
       "language": "fr",
       "date": "Mon Aug 9 2018 00:00:00 GMT+0100",
       "icon": "iot",
-      "tags": ["iot", "mxchip", "C#", "javascript"],
+      "tags": ["iot", "mxchip", "C#", "JavaScript"],
       "status": "published"
     },
     {
@@ -94,7 +94,7 @@
       "id": "grover",
       "repo": "vivienlonde/my-workshops/master/grover",
       "title": "Résoudre un problème de satisfiabilité (SAT) avec Grover",
-      "language": "fr",
+      "language": "en",
       "date": "Mon Jul 16 2018 00:00:00 GMT+0100",
       "icon": "quantum",
       "tags": ["Q#", "quantum computing", "jupyter notebook"],
