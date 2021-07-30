@@ -241,8 +241,11 @@ code {
     background: rgba(163, 21, 21, .05);
     padding: 0.1em 0.3em;
     border-radius: 3px;
-    color: #a31515;
     font-size: 16px;
+}
+
+code:not([class]) {
+    color: #a31515 !important;
 }
 
 .box {  
