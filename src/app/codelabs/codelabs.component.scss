@@ -101,9 +101,22 @@
   }
   .card-body {
     margin-top: 36px;
+    position: relative;
 
     .tags {
       font-size: 0.8em;
+    }
+
+    .lang {
+      position: absolute;
+      right: 4px;
+      top: -32px;
+      color: #31708f;
+      background-color: #d9edf7;
+      border-color: #bce8f1;
+      padding: 0 6px;
+      border-radius: 4px;
+      font-size: .8em;
     }
   }
 }
