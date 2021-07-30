@@ -53,12 +53,12 @@
     {
       "id": "swa",
       "repo": "tagazok/my-workshops/master/static-web-apps",
-      "title": "Create a web app using Static Web App with and Cosmos DB",
+      "title": "Create a web app using Static Web Apps and Cosmos DB",
       "language": "en",
       "date": "Fri Jul 30 2021 00:00:00 GMT+0100",
       "icon": "azure",
       "tags": ["SWA", "Cosmos DB", "JavaScript", "Serverless"],
-      "status": "published"
+      "status": ""
     },
     {
       "id": "aks",

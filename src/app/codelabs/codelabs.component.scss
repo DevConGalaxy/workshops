@@ -47,11 +47,37 @@
   color: inherit;
 }
 
+.cards {
+  display: grid;
+  grid-gap: 18px 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 900px) {
+  .cards {
+    display: grid;
+    grid-gap: 18px 18px;
+    grid-template-columns: repeat(2, 1fr);
+  } 
+}
+
+@media screen and (max-width: 600px) {
+  .cards {
+    display: grid;
+    grid-gap: 18px 18px;
+    grid-template-columns: repeat(1, 1fr);
+
+    .card {
+      max-width: none;
+      width: 100%;
+    }
+  } 
+}
 .card {
   position: relative;
   flex: 1 0 330px;
   max-width: 330px;
-  margin: 0 16px 16px 0;
+  // margin: 0 16px 16px 0;
   cursor: pointer;
   transition-property: box-shadow, transform;
   transition-duration: 600ms;
