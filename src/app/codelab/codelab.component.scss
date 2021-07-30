@@ -22,6 +22,7 @@ mat-drawer-container {
 .codelab-steps {
     overflow-y: auto;
     overflow-x: hidden;
+    text-align: justify;
 
     .list-item {
         // margin: 1em 0em;
@@ -58,7 +59,7 @@ mat-drawer-container {
         border-color: #d43f3a;
         color: #fff;
     }
-    
+
     i {
         font-size: 20px;
     }
@@ -89,13 +90,13 @@ mat-drawer-container {
         .author {
             padding: 1em;
             span {
-                padding-left: .3em;
+                padding-left: 0.3em;
             }
         }
         .avatar {
-           width: 35px;
-           height: auto;
-           border-radius: 50%; 
+            width: 35px;
+            height: auto;
+            border-radius: 50%;
         }
         a {
             text-decoration: none;
@@ -123,7 +124,7 @@ mat-drawer-container {
     flex-basis: 320px;
 
     .title {
-        background-color: #3b3b3b;
+        background-color: #1f92d7;
         color: #fff;
         letter-spacing: 0.15em;
         font-weight: normal;
@@ -150,8 +151,6 @@ mat-drawer-container {
 }
 
 #results {
-    background-color: $bg-color-results;
-
     .title {
         background-color: #fff;
     }
@@ -180,12 +179,6 @@ pre[class*="language-"] {
     font-size: 14px;
 }
 
-code {
-    background-color: #e8eaed;
-    padding: 0.1em 0.3em;
-}
-
-
 .controls {
     padding: 1em 2em;
     border-top: solid 1px #e6e6e6;
@@ -193,6 +186,7 @@ code {
     button {
         padding: 0.5em;
         cursor: pointer;
+        background-color: #1f92d7;
     }
 }
 
@@ -202,13 +196,12 @@ code {
 
 mat-drawer {
     background-color: #fff;
-    
+
     display: flex;
     position: static;
     visibility: visible !important;
     transform: translate3d(0, 0, 0);
 }
-
 
 @media screen and (max-width: 1024px) {
     mat-drawer {
@@ -231,7 +224,7 @@ mat-drawer {
     .codelab-header {
         .authors {
             .author {
-                padding: .5em;
+                padding: 0.5em;
             }
         }
     }

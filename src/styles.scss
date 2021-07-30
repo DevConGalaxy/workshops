@@ -13,7 +13,7 @@ $font-color: #4b4b4b;
 html,
 body {
     height: 100%;
-    background-color: #f3f3f3;
+    background-color: #f3f8fb;
 }
 body {
     margin: 0;
@@ -24,11 +24,10 @@ body {
 
 .header {
     padding: 1em 2em;
-    border-bottom: solid 1px #e6e6e6;
     font-weight: 600;
     
-    border-bottom: solid 1px #e6e6e6;
-    background-color: #3b3b3b;
+    border-bottom: solid 1px #8ba6b3;
+    background-color: #1f92d7;
     color: #fff;
 
 
@@ -65,14 +64,16 @@ h4 {
 
 div[markdown] * {
     max-width: 100%;
+    color: rgb(92, 92, 92);
 }
 
 div[markdown] img {
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
 }
 
 div[markdown] pre[class*="language-"] {
-    border-radius: 0.2em;
+    border-radius: 4px;
 }
 
 div[markdown] ul {
@@ -88,10 +89,12 @@ div[markdown] ul {
     // margin: 2em;
     background-color: #fff;
     line-height: 1.7;
+    border-radius: 6px;
 }
-mat-drawer-container {
+.mat-drawer-container {
     width: 100%;
-
+    background-color: #f3f8fb;
+    
     .mat-drawer-backdrop.mat-drawer-shown {
         background-color: rgba(0, 0, 0, 0.6);
     }
@@ -232,4 +235,88 @@ textarea.cdk-textarea-autosize-measuring-firefox {
     padding: 2px 0 !important;
     box-sizing: content-box !important;
     height: 0 !important;
+}
+
+code {
+    background: rgba(163, 21, 21, .05);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    color: #a31515;
+    font-size: 16px;
+}
+
+.box {  
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        border-radius: 0 4px 0 4px;
+        top: -1px;
+        right: -1px;
+        padding: 0 0.7em;
+        font-size: .7em;
+    }
+
+    &::before {    
+        align-items: center;
+        font-size: 2.5em;
+        padding-right: 15px;
+        font-family: "Material Icons Outlined";
+    }
+
+
+    &.info {
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+
+        &::before {
+            // content: '🛈';
+            content: '\e88e';
+        }
+
+        &::after {      
+            content: "Info";
+            background-color: #31708f;
+            color: #d9edf7;
+        }
+    }
+
+    &.tip {
+        color: #8a6d3b;
+        background-color: #fcf8e3;
+        border-color: #faebcc;
+
+        &::before {
+            content: '\ea24';
+        }
+
+        &::after {  
+            content: "Tip";     
+            background-color: #8a6d3b;
+            color: #faebcc;
+        }
+    }
+
+    &.assignment {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+
+        &::before {
+            content: '\e86f';
+        }
+
+        &::after {   
+            content: "Assignment";    
+            background-color: #3c763d;
+            color: #d6e9c6;
+        }
+    }
 }
