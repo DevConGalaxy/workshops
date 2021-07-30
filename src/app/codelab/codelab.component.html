@@ -67,7 +67,7 @@
                     class="codelab-step padding-1">
                 </div>
                 <div class="controls flex justify-content-space-between">
-                    <button [hidden]="currentStep <= 1" mat-raised-button (click)="prev()">
+                    <button [hidden]="currentStep <= 1" mat-raised-button (click)="prev()" color="primary">
                         <i class="fas fa-chevron-left"></i> BACK
                     </button>
                     <button [hidden]="currentStep >= steps.length" mat-raised-button (click)="next()" color="primary">
