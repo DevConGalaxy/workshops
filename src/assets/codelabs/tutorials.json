@@ -51,6 +51,16 @@
   ],
   "tutorials": [
     {
+      "id": "swa",
+      "repo": "tagazok/my-workshops/master/static-web-apps",
+      "title": "Create a web app using Static Web App with and Cosmos DB",
+      "language": "en",
+      "date": "Fri Jul 30 2021 00:00:00 GMT+0100",
+      "icon": "azure",
+      "tags": ["SWA", "Cosmos DB", "JavaScript", "Serverless"],
+      "status": ""
+    },
+    {
       "id": "aks",
       "repo": "thomasrannou/aks-workshop/main/",
       "title": "Déployer votre premier cluster Kubernetes dans Azure",
