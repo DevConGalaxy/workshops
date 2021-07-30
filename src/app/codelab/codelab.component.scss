@@ -105,7 +105,8 @@ mat-drawer-container {
 }
 
 .step-title {
-    white-space: nowrap;
+    // white-space: nowrap;
+    white-space:pre-wrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
