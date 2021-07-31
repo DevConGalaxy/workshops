@@ -181,6 +181,8 @@ export class CodelabComponent implements OnInit {
     this.currentStep = step;
     this.updateStepUrl();
     this.scrollToTop();
+    
+    // (document.querySelector(`#step-${step} .codelab-step > h2`) as HTMLElement)?.focus();
   }
 
   next() {

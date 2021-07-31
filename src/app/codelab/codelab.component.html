@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div *ngFor="let step of tutorialSteps; index as idx" id="step-{{idx + 1}}"
-                class="card margin-2 margin-bottom-5 margin-mobile-0" [class.selected]="idx + 1 == currentStep">
+                class="card margin-2 margin-bottom-6" [class.selected]="idx + 1 == currentStep">
                 <div markdown ngPreserveWhitespaces [data]="step" (error)="onError($event)"
                     class="codelab-step padding-1">
                 </div>
