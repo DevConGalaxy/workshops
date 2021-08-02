@@ -19,7 +19,7 @@
     </header>
     <main class="container flex flex-wrap-wrap justify-content-center">
         <div class="cards">
-            <div class="card flex flex-direction-column" *ngFor="let tutorial of tutorials |status: 'published'" routerLink="/workshops/{{tutorial.id}}" [queryParams]="{repo: tutorial.repo}">
+            <a class="card flex flex-direction-column workshop-card" *ngFor="let tutorial of tutorials |status: 'published'" routerLink="/workshops/{{tutorial.id}}" [queryParams]="{repo: tutorial.repo}" [title]="tutorial.title">
                 <div class="card-header" [ngStyle]="{backgroundImage:'url(https://raw.githubusercontent.com/' + tutorial.repo + '/cover.png)'}"></div>
                 <div class="card-icon">
                     <img src="./assets/images/logos/{{tutorial.icon}}.png" alt='{{tutorial.icon}}' title='{{tutorial.icon}}' />
@@ -32,7 +32,7 @@
                         {{tutorial.tags.join(', ')}}
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </main>
     <footer class="footer flex flex-direction-row justify-content-space-around" [style.background-color]="applicationInfos.theme?.primary?.background"

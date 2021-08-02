@@ -182,7 +182,10 @@ export class CodelabComponent implements OnInit {
     this.updateStepUrl();
     this.scrollToTop();
     
-    // (document.querySelector(`#step-${step} .codelab-step > h2`) as HTMLElement)?.focus();
+    setTimeout(() => {
+      (document.querySelector(`#step-${step} .codelab-step > h1`) as HTMLElement).tabIndex = 0;
+      (document.querySelector(`#step-${step} .codelab-step > h1`) as HTMLElement)?.focus();
+    }, 0); 
   }
 
   next() {
