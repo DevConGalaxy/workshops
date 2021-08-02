@@ -93,7 +93,6 @@
     transition-property: box-shadow, transform;
     transition-duration: 600ms;
     transition-timing-function: cubic-bezier(0.16, 1, 0.29, 0.99);
-    border-radius: 50%;
   }
   &:hover {
     transform: translate3d(0, -4px, 0);
@@ -125,7 +124,7 @@
     top: 84px;
     left: 20px;
     background-color: #fff;
-    border-radius: 6px;
+    border-radius: 50%;
 
     img {
       width: 100%;
