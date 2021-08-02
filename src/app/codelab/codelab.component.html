@@ -78,19 +78,18 @@
         </div>
         <div class="bug">
             <button mat-fab [matMenuTriggerFor]="menu" class="bug-button"
-                aria-label="Bouton pour signaler un bug"
-                matTooltip="Signaler un bug"
+                aria-label="report a bug"
+                matTooltip="Report a bug"
                 matTooltipPosition="left"
-                aria-tooltip="Bouton pour signaler un bug"
-        >
+                aria-tooltip="Report a bug">
                 <i class="fas fa-bug"></i>
             </button>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item>
-                    <span><a href="https://github.com/DevConGalaxy/workshops/issues/" target="_blank">Sur la plateforme</a></span>
+                    <span><a href="https://github.com/DevConGalaxy/workshops/issues/" target="_blank">On the platform</a></span>
                 </button>
                 <button mat-menu-item>
-                    <span><a href="{{infos?.github}}/issues/" target="_blank">Dans ce tutorial</a></span>
+                    <span><a href="{{infos?.github}}/issues/" target="_blank">Int this workshop</a></span>
                 </button>
             </mat-menu>
         </div>

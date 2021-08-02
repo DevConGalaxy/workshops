@@ -10,7 +10,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
       <button mat-raised-button (click)="close('restart')">Restart</button>
       <button mat-raised-button color="primary" (click)="close('resume')">Continue</button>
     </mat-dialog-actions>
-  `
+  `,
+  styles: [
+    ':host {color: #5c5c5c; }',
+    'button[color="primary"] { background-color: #1f92d7; }',
+    '.mat-dialog-content { padding-bottom: 24px; }'
+  ]
 })
 export class ResumeDialogComponent {
   constructor(
