@@ -93,7 +93,7 @@
     {
       "id": "grover",
       "repo": "vivienlonde/my-workshops/master/grover",
-      "title": "Résoudre un problème de satisfiabilité (SAT) avec Grover",
+      "title": "Solve a a satisfiability (SAT) problem with Grover",
       "language": "en",
       "date": "Mon Jul 16 2018 00:00:00 GMT+0100",
       "icon": "quantum",
