@@ -41,7 +41,7 @@ export class CodelabComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.tutorialId = params.get('id');
       this.mcid = this.route.snapshot.queryParamMap.get('WT.mc_id') || 'javascript-0000-yolasors';
-      this.ocid = this.route.snapshot.queryParamMap.get('ocid') || '3030268';
+      this.ocid = this.route.snapshot.queryParamMap.get('ocid') || 'AID3030268';
 
       this.konamicode = new Konami(`./assets/codelabs/${this.tutorialId}/solution.html`);
 
