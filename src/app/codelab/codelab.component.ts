@@ -40,8 +40,8 @@ export class CodelabComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       this.tutorialId = params.get('id');
-      this.mcid = this.route.snapshot.queryParamMap.get('WT.mc_id') || 'javascript-0000-yolasors';
-      this.ocid = this.route.snapshot.queryParamMap.get('ocid') || 'AID3030268';
+      // this.mcid = this.route.snapshot.queryParamMap.get('WT.mc_id') || 'javascript-0000-yolasors';
+      // this.ocid = this.route.snapshot.queryParamMap.get('ocid') || 'AID3030268';
 
       this.konamicode = new Konami(`./assets/codelabs/${this.tutorialId}/solution.html`);
 
@@ -88,38 +88,6 @@ export class CodelabComponent implements OnInit {
           }
         }
       });
-
-      // this.route.queryParamMap.subscribe((innerParams: any) => {
-      //   if (!innerParams.has('step')) {
-      //     const localStorageStep = JSON.parse(
-      //       localStorage.getItem(this.tutorialId)
-      //     );
-      //     if (localStorageStep) {
-      //       this.currentStep = localStorageStep.step;
-      //     } else {
-      //       this.currentStep = 1;
-      //     }
-
-      //     if (this.currentStep > 1) {
-      //       this.openResumeDialog();
-      //     } else {
-      //       this.updateStepUrl(true);
-      //     }
-      //   } else {
-      //     this.currentStep = Number(innerParams.get('step'));
-      //     if (this.currentStep < 1) {
-      //       this.currentStep = 1;
-      //       this.updateStepUrl(true);
-      //     }
-      //   }
-      //   if (
-      //     this.tutorialSteps.length > 0 &&
-      //     this.currentStep > this.tutorialSteps.length
-      //   ) {
-      //     this.currentStep = this.tutorialSteps.length;
-      //     this.updateStepUrl(true);
-      //   }
-      // });
     });
   }
 
@@ -175,6 +143,11 @@ export class CodelabComponent implements OnInit {
       this.tutorialResources = response.resources || [];
       this.authors = response.authors || [];
       this.infos = response.infos;
+
+      this.mcid = this.route.snapshot.queryParamMap.get('WT.mc_id') || response.tracking.mcid || 'javascript-0000-yolasors';
+      this.ocid = this.route.snapshot.queryParamMap.get('ocid') || response.tracking.ocid || 'AID3030268';
+
+      this.updateStepUrl(true);
     });
   }
 
