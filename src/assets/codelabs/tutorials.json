@@ -47,6 +47,16 @@
   ],
   "tutorials": [
     {
+      "id": "docker-azure",
+      "repo": "thomasrannou/container-workshop",
+      "title": "Create a web app using Static Web Apps and Cosmos DB",
+      "language": "fr",
+      "date": "Mon Oct 29 2021 00:00:00 GMT+0100",
+      "icon": "azure",
+      "tags": ["Azure", "Docker", "Container", ".Net"],
+      "status": "published"
+    },
+    {
       "id": "swa",
       "repo": "tagazok/my-workshops/master/static-web-apps",
       "title": "Create a web app using Static Web Apps and Cosmos DB",
@@ -63,7 +73,7 @@
       "language": "fr",
       "date": "Mon Mar 1 2021 00:00:00 GMT+0100",
       "icon": "kubernetes",
-      "tags": ["kubernetes", "docker", ".Net 5"],
+      "tags": ["kubernetes", "docker", ".Net"],
       "status": "published"
     },
     {
