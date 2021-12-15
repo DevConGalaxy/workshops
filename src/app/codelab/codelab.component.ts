@@ -53,7 +53,7 @@ export class CodelabComponent implements OnInit {
             this.repo = innerParams.get('repo');
             
             this.currentStep = 1;
-            this.getTutorial();
+            
             this.getData();
           }
 
@@ -148,6 +148,7 @@ export class CodelabComponent implements OnInit {
       this.ocid = this.route.snapshot.queryParamMap.get('ocid') || response.tracking.ocid || 'AID3030268';
 
       this.updateStepUrl(true);
+      this.getTutorial();
     });
   }
 

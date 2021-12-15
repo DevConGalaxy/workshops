@@ -49,7 +49,7 @@
     {
       "id": "docker-azure",
       "repo": "thomasrannou/container-workshop/main",
-      "title": "Create a web app using Static Web Apps and Cosmos DB",
+      "title": "Déployer vos conteneurs Docker dans Azure",
       "language": "fr",
       "date": "Mon Oct 29 2021 00:00:00 GMT+0100",
       "icon": "azure",
